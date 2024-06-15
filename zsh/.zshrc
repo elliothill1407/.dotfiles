@@ -114,5 +114,5 @@ autoload -U compinit && compinit
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$HOME/.local/bin:$PATH
 
-#load starship (look of terminal line)
+# load starship (look of terminal line)
 eval "$(starship init zsh)"

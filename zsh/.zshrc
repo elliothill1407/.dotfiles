@@ -111,7 +111,8 @@ alias gitconfig="vim ~/.gitconfig"
 # load zsh-completions
 autoload -U compinit && compinit
 
-# use starship theme (needs to be at the end)
-eval "$(starship init zsh)"
-
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$HOME/.local/bin:$PATH
+
+#load starship (look of terminal line)
+eval "$(starship init zsh)"

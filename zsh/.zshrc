@@ -69,9 +69,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='nvim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='mnvim'
 # fi
 
 # Compilation flags
@@ -90,23 +90,29 @@ source $ZSH/oh-my-zsh.sh
 alias ip="ipconfig getifaddr en0"
 
 # edit global zsh configuration
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 # reload zsh configuration
 alias zshsource="source ~/.zshrc"
 # reload zsh configuration
 alias ohmyzsh="cd ~/.oh-my-zsh"
 # edit global alacritty configuration
-alias alaconfig="vim ~/.config/alacritty/alacritty.toml"
+alias alaconfig="nvim ~/.config/alacritty/alacritty.toml"
 # edit global tmux config
-alias tmuxconfig="vim ~/.config/tmux/tmux.conf"
+alias tmuxconfig="nvim ~/.config/tmux/tmux.conf"
 
 # navigate to global ssh directory
 alias sshhome="cd ~/.ssh"
 # edit global ssh configuration
-alias sshconfig="vim ~/.ssh/config"
+alias sshconfig="nvim ~/.ssh/config"
 
 # edit global git configuration
-alias gitconfig="vim ~/.gitconfig"
+alias gitconfig="nvim ~/.gitconfig"
+
+# lazygit shorthand
+alias lg="lazygit"
+
+# load zoxide
+eval "$(zoxide init zsh)"
 
 # load zsh-completions
 autoload -U compinit && compinit
@@ -116,3 +122,12 @@ export PATH=$HOME/.local/bin:$PATH
 
 # load starship (look of terminal line)
 eval "$(starship init zsh)"
+
+alias ls="eza --icons --grid --group-directories-first"
+
+# bun completions
+[ -s "/Users/elliothill/.bun/_bun" ] && source "/Users/elliothill/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

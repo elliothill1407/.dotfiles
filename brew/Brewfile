@@ -1,6 +1,7 @@
 tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
+brew "mas"
 brew "bat"
 brew "eza"
 brew "fzf"

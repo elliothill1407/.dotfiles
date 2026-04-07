@@ -54,7 +54,7 @@ for f in ~/.zshrc ~/.gitconfig; do
     rm "$f"
   fi
 done
-stow alacritty git ssh starship tmux zsh
+stow alacritty git rectangle ssh starship tmux zsh
 
 echo "→ Adding nvim config as submodule (if not already)..."
 if [ ! -d "$HOME/.config/nvim/.git" ]; then

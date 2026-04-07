@@ -6,6 +6,9 @@
 # Xcode
 *.xcuserstate
 
+# Claude Code
+.claude/
+
 # Editors
 .vscode/
 *.swp

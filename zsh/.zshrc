@@ -24,6 +24,10 @@ alias sshconfig="nvim ~/.ssh/config"
 alias gitconfig="nvim ~/.gitconfig"
 alias lg="lazygit"
 alias ls="eza --icons --grid --group-directories-first"
+alias ll="eza -la --icons --group-directories-first"
+
+# ── Functions ─────────────────────────────────────────────────────────────────
+mkcd() { mkdir -p "$1" && cd "$1" }
 
 # ── PATH ─────────────────────────────────────────────────────────────────────
 export BUN_INSTALL="$HOME/.bun"
@@ -33,8 +37,10 @@ export PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$(go env GOPATH)/bin"
 autoload -U compinit && compinit
 
 # ── Tools ────────────────────────────────────────────────────────────────────
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(starship init zsh)"
+[ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

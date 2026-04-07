@@ -1,5 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Elliot Hill
 	email = elliothill1407@gmail.com
+
+[core]
+	excludesfile = ~/.gitignore_global

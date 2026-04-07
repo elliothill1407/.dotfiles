@@ -39,7 +39,7 @@ export PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$(go env GOPATH)/bin"
 autoload -U compinit && compinit
 
 # ── Tools ────────────────────────────────────────────────────────────────────
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 [ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 [ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"

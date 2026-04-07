@@ -32,8 +32,28 @@ else
   echo "  SSH key already exists, skipping."
 fi
 
+echo "→ Installing oh-my-zsh plugins..."
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+else
+  echo "  zsh-autosuggestions already installed, skipping."
+fi
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+else
+  echo "  zsh-syntax-highlighting already installed, skipping."
+fi
+
 echo "→ Stowing dotfiles..."
 cd "$HOME/.dotfiles"
+# Remove default macOS dotfiles that would conflict with stow
+for f in ~/.zshrc ~/.gitconfig; do
+  if [ -f "$f" ] && [ ! -L "$f" ]; then
+    echo "  Removing default $f to allow stow..."
+    rm "$f"
+  fi
+done
 stow alacritty git ssh starship tmux zsh
 
 echo "→ Adding nvim config as submodule (if not already)..."

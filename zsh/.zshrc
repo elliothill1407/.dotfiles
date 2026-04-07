@@ -23,6 +23,8 @@ alias sshhome="cd ~/.ssh"
 alias sshconfig="nvim ~/.ssh/config"
 alias gitconfig="nvim ~/.gitconfig"
 alias lg="lazygit"
+alias dotfiles="cd ~/.dotfiles"
+alias brewup="brew update && brew upgrade && brew cleanup"
 alias ls="eza --icons --grid --group-directories-first"
 alias ll="eza -la --icons --group-directories-first"
 

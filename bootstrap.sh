@@ -7,6 +7,13 @@ brew bundle --file="$HOME/.dotfiles/brew/Brewfile"
 echo "→ Setting up fzf shell integration..."
 "$(brew --prefix)/opt/fzf/install" --all --no-update-rc
 
+echo "→ Installing oh-my-zsh..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  echo "  Already installed, skipping."
+fi
+
 echo "→ Stowing dotfiles..."
 cd "$HOME/.dotfiles"
 stow alacritty git ssh starship tmux zsh

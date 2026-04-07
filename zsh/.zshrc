@@ -33,10 +33,15 @@ mkcd() { mkdir -p "$1" && cd "$1" }
 
 # ── PATH ─────────────────────────────────────────────────────────────────────
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$(go env GOPATH)/bin"
+export PATH="$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$HOME/go/bin"
 
 # ── Completions ───────────────────────────────────────────────────────────────
-autoload -U compinit && compinit
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # ── Tools ────────────────────────────────────────────────────────────────────
 eval "$(starship init zsh)"

@@ -43,3 +43,5 @@ vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "yzhang.markdown-all-in-one"
+mas "Amphetamine", id: 937984704
+mas "Xcode", id: 497799835
